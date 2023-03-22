@@ -1,19 +1,19 @@
 const btn = document.getElementById("btn");
 
-            btn.addEventListener('click', run);
-
-            // console.log(name, age)
+            btn.addEventListener('click', (event) => {
+    event.preventDefault();
 
             function checkAge() {
-                const age = document.getElementById('age').value;
-                const name = document.getElementById('name').value;
+				const form = document.querySelector("form");
+                const ageIn = document.getElementById('age').value;
+                const nameIn = document.getElementById('name').value;
                 return new Promise((resolve, reject) => {
                     setTimeout(() => {
-                        if (age >= 18) {
-                            resolve("Welcome "+ name +" You can vote")
+                        if (umar >= 18) {
+                            resolve("Welcome "+ nameIn +". You can vote")
                         }
                         else {
-                            reject("Sorry "+ name +" You can not vote");
+                            reject("Oh sorry "+ nameIn +". You aren't old enough.");
                         }
                     }, 4000);
 
@@ -23,8 +23,7 @@ const btn = document.getElementById("btn");
             }
 
            function run(){
-                 checkAge()
-					 .then((res) => {
+                 checkAge().then((res) => {
                 alert(res);
             })
                 .catch((err) => {
